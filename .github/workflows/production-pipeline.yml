@@ -11,9 +11,9 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 # права для публікації образу в ghcr.io через GITHUB_TOKEN
-# permissions:
-#   contents: read
-#   packages: write
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   # Stage 1: Build and Test
