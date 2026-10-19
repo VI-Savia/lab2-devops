@@ -81,9 +81,12 @@ jobs:
     environment: staging
     steps:
       - name: Deploy to staging
+        env:
+          IMAGE_TAGS: ${{ needs.build.outputs.image-tag }}
         run: |
           echo "Deploying to staging..."
-          # kubectl set image deployment/app app=${{ needs.build.outputs.image-tag }}
+          echo "Image tags:"
+          echo "$IMAGE_TAGS"
 
   # Stage 4: Deploy to Production
   deploy-production:
